@@ -1,0 +1,11 @@
+1)
+a) Line 1 will run "n" times. So time complexity is O(n)
+   Line 2 will run (n-i-1) times. So time complexity is O(n)
+   Line 3 is of constant complexity O(1)
+     So Total time complexity is "O(n)"
+
+b) Line 1 will run "logn" times. So time complexity is O(logn)
+   Line 2 will run "n" times. So time complexity is O(n)
+   Line 3 is of constant complexity O(1)
+     So Total time complexity is O(logn) * O(n) * O(1)
+			       = O(nlogn)
