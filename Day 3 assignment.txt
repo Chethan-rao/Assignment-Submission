@@ -1,0 +1,70 @@
+Question 1]
+
+void insert_any(int item)
+{
+    int posi;
+ struct node *ptr;
+ struct node *temp = (struct node *) malloc(sizeof(struct node));
+ temp->data=item;
+ int count=0;
+ printf("Enter the position");
+    scanf("%d",&posi);
+ if(posi==1)
+  loc=NULL;
+ else
+  {
+   ptr=first;
+   while(count<posi && ptr->link!=NULL)
+   {
+    ptr=ptr->link;
+    count++;
+   }
+   loc=ptr;
+  }
+
+ if(loc==NULL)
+   {
+    temp->link=first;
+    first=temp;
+   }
+ else
+  {
+   temp->link=loc->link;
+   loc->link=temp;
+  }
+}
+
+
+Question 2]
+
+void delete_beg()
+{
+	struct node *temp;
+	if(first==NULL)
+	{
+		printf("list is empty\n");
+	}
+	temp=first;
+	first=first->link;
+	printf("deleted item=%d",temp->data);
+	free(temp);
+}
+
+
+Question 3]
+
+void delete_end()
+{
+    struct node *loc,*locp;
+    locp=NULL;
+    loc=first;
+    while(loc->link!=NULL)
+    {
+        locp=loc;
+        loc=loc->link;
+    }
+    locp->link=NULL;
+    printf("%d",loc->data);
+    free(loc);
+}
+
