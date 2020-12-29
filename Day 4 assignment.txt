@@ -1,0 +1,38 @@
+Question 1]
+
+Because beg + end may overflow. Which then means you get a result that is less than beg. Or far into the negative if you are using signed integers.
+
+
+So instead they take the distance between beg and end and add half of that to beg. This is only a single extra operation to make the algorithm more robust. 
+
+
+Question 2]
+
+int ternarySearch(int beg, int end, int key, int ar[])
+ 
+{
+    while (end >= beg) {
+ 
+        int mid1 = beg + (end - beg) / 3;
+        int mid2 = end - (end - beg) / 3;
+ 
+        if (ar[mid1] == key) {
+            return mid1;
+        }
+        if (ar[mid2] == key) {
+            return mid2;
+        }
+
+        if (key < ar[mid1]) {
+            end = mid1 - 1;
+        }
+        else if (key > ar[mid2]) {
+            beg = mid2 + 1;
+        }
+        else {
+            beg = mid1 + 1;
+            end = mid2 - 1;
+        }
+    }
+    return -1;
+}
